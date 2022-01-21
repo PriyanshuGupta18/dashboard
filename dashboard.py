@@ -5,6 +5,9 @@ from company import Company
 from medicine import medicine
 from datetime import *
 from math import *
+from bill import Bill
+from show_bill import Generate
+from admin_access import Admin_access
 import time
 import os
 class DSMS:
@@ -28,12 +31,13 @@ class DSMS:
 
 
         #Buttons
-        btn_company=Button(M_Frame,text="Company",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.add_company).place(x=20,y=5,width=200,height=40)
-        btn_drug=Button(M_Frame,text="Medicine",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.add_medicine).place(x=240,y=5,width=200,height=40)
-        btn_sales=Button(M_Frame,text="Generate Bill",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2").place(x=460,y=5,width=200,height=40)
-        btn_purchase=Button(M_Frame,text="Invoice",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2").place(x=680,y=5,width=200,height=40)
-        btn_logout=Button(M_Frame,text="Logout",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.logout).place(x=900,y=5,width=200,height=40)
-        btn_exit=Button(M_Frame,text="Exit",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.quit).place(x=1120,y=5,width=200,height=40)
+        btn_company=Button(M_Frame,text="Company",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.add_company).place(x=10,y=5,width=180,height=40)
+        btn_drug=Button(M_Frame,text="Medicine",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.add_medicine).place(x=200,y=5,width=180,height=40)
+        btn_sales=Button(M_Frame,text="Sales",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.add_bill).place(x=390,y=5,width=180,height=40)
+        btn_generate=Button(M_Frame,text="Generate Bill",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.show_bill).place(x=580,y=5,width=180,height=40)
+        btn_logout=Button(M_Frame,text="Logout",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.logout).place(x=770,y=5,width=180,height=40)
+        btn_exit=Button(M_Frame,text="Exit",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.quit).place(x=960,y=5,width=180,height=40)
+        btn_purchase=Button(M_Frame,text="Purchase",font=("goudy old style",15,"bold"),bg="#e28743",fg="#eeeee4",cursor="hand2",command=self.purchase).place(x=1150,y=5,width=180,height=40)
 
 
         #content
@@ -88,6 +92,20 @@ class DSMS:
         self.new_obj=medicine(self.new_win)
 
 
+    def add_bill(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=Bill(self.new_win)
+
+
+    def purchase(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=Admin_access(self.new_win)
+
+    def show_bill(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=Generate(self.new_win)
+
+        
     def logout(self):
         op=messagebox.askyesno("Confirm","Do you want to logout",parent=self.root)
         if op==True:
