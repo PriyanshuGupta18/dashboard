@@ -31,7 +31,7 @@ class Generate:
         self.var_search=StringVar()
         lbl_search=Label(self.root,text="Reciept number",font=("goudy old style",19,'bold'),bg="#1e81b0").place(x=230,y=100)
         txt_search=Entry(self.root,textvariable=self.var_search,font=("goudy old style",15,'bold'),bg="#FEFFCE").place(x=430,y=105,width=150)
-        btn_search=Button(self.root,text="Search",font=("goudy old style",15,'bold'),bg="#FF5733",cursor="hand2",command=self.search).place(x=600,y=105,width=105,height=30)
+        btn_search=Button(self.root,text="Search",font=("goudy old style",15,'bold'),bg="#FF5733",cursor="hand2",command=lambda:[self.search(),self.netpayable()]).place(x=600,y=105,width=105,height=30)
 
 
         lbl_final=Label(self.root,text="Net Payable",font=("goudy old style",19,'bold'),bg="#1e81b0").place(x=730,y=100)
@@ -111,10 +111,9 @@ class Generate:
         cur=con.cursor()
 
         try:
-            cur.execute(f"select AMOUNT from history_sales where RECIEPT_No=%s",(self.var_search.get(),))
-            rows=cur.fetchall()
-            for i in rows:
-                a=a+rows
+            cur.execute(f"CALL pay(%s)",self.var_search.get())
+            amt=cur.fetchone()
+            self.net.set(amt)
             
             con.close()
 

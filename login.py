@@ -11,10 +11,10 @@ from PIL import Image,ImageTk,ImageDraw
 from math import*
 import pymysql
 import os
-class clock:
+class Login:
     def __init__(self,root):
         self.root=root
-        self.root.title("Analog Clock")
+        self.root.title("Login Window")
         self.root.geometry("1350x700+0+0")
         self.root.config(bg="#1e81b0")
         self.bg=ImageTk.PhotoImage(file="images/log.jpg")
@@ -35,7 +35,7 @@ class clock:
         self.txt_name.place(x=320,y=150,width=250)
 
         lbl_pass=Label(login_frame,text="PASSWORD",font=("times new roman",15,"bold"),bg='white',fg='brown').place(x=200,y=250)
-        self.txt_pass=Entry(login_frame,font=("goudy old style",12),bg="#FEFFCE")
+        self.txt_pass=Entry(login_frame,font=("goudy old style",12),bg="#FEFFCE",show='*')
         self.txt_pass.place(x=320,y=250,width=250)
 
         lbl_type=Label(login_frame,text="TYPE",font=("times new roman",15,"bold"),bg='white',fg='brown').place(x=250,y=350)
@@ -113,5 +113,5 @@ class clock:
 
 if __name__=="__main__":
     root=Tk()
-    obj=clock(root)
+    obj=Login(root)
     root.mainloop()

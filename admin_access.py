@@ -8,7 +8,7 @@ import os
 class Admin_access:
     def __init__(self,root):
         self.root=root
-        self.root.title("Analog Clock")
+        self.root.title("Admin Login")
         self.root.geometry("1350x700+0+0")
         self.root.config(bg="#1e81b0")
         self.bg=ImageTk.PhotoImage(file="images/log.jpg")
@@ -28,7 +28,7 @@ class Admin_access:
         self.txt_uname.set("Select")
 
         lbl_pass=Label(frame1,text="PASSWORD",font=("times new roman",15,"bold"),bg='white',fg='brown').place(x=100,y=250)
-        self.txt_pass=Entry(frame1,font=("goudy old style",12),bg="#FEFFCE")
+        self.txt_pass=Entry(frame1,font=("goudy old style",12),bg="#FEFFCE",show='*')
         self.txt_pass.place(x=220,y=250,width=250)
 
         btn_login=Button(frame1,text="LOGIN",cursor="hand2",command=self.login,font=("times new roman",15),bg="brown",fg="white").place(x=300,y=330)

@@ -5,7 +5,7 @@ from tkinter import ttk
 from tkinter import messagebox
 import datetime
 import pymysql
-class Bill:
+class Purchase:
     def __init__(self,root):
         self.root=root
         self.root.title("Drug Store Management System")
@@ -15,7 +15,7 @@ class Bill:
 
 
          #window title
-        title=Label(self.root,text="Purchase Record",font=("goudy old style",20,"bold"),bg="#e28743",fg="#eeeee4").place(x=10,y=15,width=1180,height=50)
+        title=Label(self.root,text="Inventory",font=("goudy old style",20,"bold"),bg="#e28743",fg="#eeeee4").place(x=10,y=15,width=1180,height=50)
 
 
 
@@ -150,5 +150,5 @@ class Bill:
 
 if __name__=="__main__":
     root=Tk()
-    obj=Bill(root)
+    obj=Purchase(root)
     root.mainloop()

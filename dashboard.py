@@ -54,7 +54,7 @@ class DSMS:
         self.working()
 
         #Footer
-        title=Label(self.root,text="Drug Store Management System\nDBMS Mini Project\nAcharya Institute of Technology\nUSN-(1AY19CS081,1AY19CS108)",font=("goudy old style",15),bg="#e28743",fg="#eeeee4").pack(side="bottom",fill=X)
+        title=Label(self.root,text="Drug Store Management System\nDBMS Mini Project\nAcharya Institute of Technology\nDesigned By Priyanshu Gupta (1AY19CS081)",font=("goudy old style",15),bg="#e28743",fg="#eeeee4").pack(side="bottom",fill=X)
 
     def working(self):
         h=datetime.now().time().hour
